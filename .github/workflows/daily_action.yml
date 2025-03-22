@@ -2,7 +2,7 @@ name: Daily Append Date
 
 on:
   schedule:
-    - cron: '39 15 * * *'
+    - cron: '24 18 * * *'
 
 jobs:
   append-date:
@@ -14,3 +14,11 @@ jobs:
       - name: Append date to txt file for daniel.putta@gramener.com
         run: |
           echo "$(date)" >> timestamp.txt
+    
+      - name: Commit timestamp.txt
+          run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add timestamp.txt
+          git commit -m "Update timestamp.txt" || echo "No changes to commit"
+          git push
