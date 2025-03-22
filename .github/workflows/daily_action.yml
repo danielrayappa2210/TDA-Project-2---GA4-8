@@ -1,0 +1,16 @@
+name: Daily Append Date
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs daily at midnight (UTC)
+
+jobs:
+  append-date:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Append date to txt file for daniel.putta@gramener.com
+        run: |
+          echo "$(date)" >> timestamp.txt
