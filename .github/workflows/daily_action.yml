@@ -5,7 +5,7 @@ permissions:
     
 on:
   schedule:
-    - cron: '09 18 * * *'
+    - cron: '40 18 * * *'
 
 jobs:
   append-date:
